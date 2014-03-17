@@ -19,6 +19,8 @@
     {{else}}
       {{#if content.body}}
         {{format-markdown content.body}}
+      {{else}}
+        <em>No description provided.</em>
       {{/if}}
     {{/if}}
   </div>
