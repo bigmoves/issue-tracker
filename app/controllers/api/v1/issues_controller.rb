@@ -47,6 +47,6 @@ class Api::V1::IssuesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def issue_params
-    params.require(:issue).permit(:title, :body, :state, :user, :assignee)
+    params.require(:issue).permit(:title, :body, :state, :user_id, :assignee_id)
   end
 end

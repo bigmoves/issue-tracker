@@ -24,16 +24,18 @@ export default Ember.ObjectController.extend({
       issue.save();
       this.send('reset');
     },
-    addComment: function(msg) {
-      var issue = this.get('model');
+    addComment: function(body) {
+      var issue = this.get('content');
+      var user = this.get('currentUser');
+
       var comment = this.store.createRecord('comment', {
-        body: msg,
+        body: body,
         user: this.get('currentUser'),
         issue: issue
       });
 
       comment.save().then(function(comment) {
-        issue.get('comments').pushObject(comment)
+        issue.get('comments').pushObject(comment);
       });
 
     },

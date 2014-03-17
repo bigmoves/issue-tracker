@@ -4,8 +4,8 @@ var Issue = DS.Model.extend({
   state: DS.attr('string'),
   user: DS.belongsTo('user'),
   assignee: DS.belongsTo('user'),
-  comments: DS.hasMany('comment', {async: true}),
-  labels: DS.hasMany('label', {async: true}),
+  comments: DS.hasMany('comment'),
+  labels: DS.hasMany('label'),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date')
 });
