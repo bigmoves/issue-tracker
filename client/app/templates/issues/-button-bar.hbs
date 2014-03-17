@@ -1,0 +1,36 @@
+<div class="button-bar">
+  <div class="btn-group btn-group-sm">
+    {{#link-to (query-params state="open") tagName="button" class="btn btn-default"}}{{openIssuesCount}} Open{{/link-to}}
+    {{#link-to (query-params state="closed") tagName="button" class="btn btn-default"}}{{closedIssuesCount}} Closed{{/link-to}}
+  </div>
+  <div class="btn-group btn-group-sm">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      Sort: <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li>{{link-to 'Newest' (query-params direction="desc" sort="createdAt")}}</li>
+      <li>{{link-to 'Oldest' (query-params direction="asc" sort="createdAt")}}</li>
+      <li>{{link-to 'Recently updated' (query-params direction="desc" sort="updatedAt")}}</li>
+      <li>{{link-to 'Least Recently updated' (query-params direction="asc" sort="updatedAt")}}</li>
+      <li>{{link-to 'Most commented' (query-params direction="desc" sort="comments")}}</li>
+      <li>{{link-to 'Least commented' (query-params direction="asc" sort="comments")}}</li>
+    </ul>
+  </div>
+  {{#if hasPagination}}
+    <ul class="pagination pagination-sm pull-right" style="margin: 0;">
+      {{#if previousPage}}
+        <li>{{#link-to (query-params page=previousPage)}}&laquo;{{/link-to}}</li>
+      {{else}}
+        <li><a href="#">&laquo;</a></li>
+      {{/if}}
+      {{#each n in pages}}
+        <li>{{link-to n (query-params page=n)}}</li>
+      {{/each}}
+      {{#if nextPage}}
+        <li>{{#link-to (query-params page=nextPage)}}&raquo;{{/link-to}}</li>
+      {{else}}
+        <li><a href="#">&raquo;</a></li>
+      {{/if}}
+    </ul>
+  {{/if}}
+</div>

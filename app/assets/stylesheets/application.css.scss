@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require github
+ */
+@import "bootstrap-custom";
+@import "font-awesome";
+
+.issue-header {
+  h2 {
+    margin: 0;
+  }
+  .back-link {
+    margin-top: 4px;
+    margin-left: -30px;
+    color: #ccc;
+  }
+}
+
+.issue-form {
+  position: relative;
+  padding-left: 64px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  .inner {
+    padding: 15px;
+    padding-top: 0;
+    .nav-tabs {
+      margin-bottom: 15px;
+    }
+  }
+  .avatar {
+    float: left;
+    margin-left: -64px;
+    border-radius: 4px;
+  }
+}
+
+.comment-form {
+  position: relative;
+  padding-left: 64px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  .inner {
+    padding: 15px;
+    .nav-tabs {
+      margin-bottom: 15px;
+    }
+  }
+  .avatar {
+    float: left;
+    margin-left: -64px;
+    border-radius: 4px;
+  }
+}
+
+.comment {
+  position: relative;
+  padding-left: 64px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  .avatar {
+    float: left;
+    margin-left: -64px;
+    border-radius: 4px;
+  }
+}
+
+.avatar {
+  border-radius: 4px;
+}
+
+.form-control {
+  &.input-is-invalid {
+    border-color: #e52817;
+    background-color: #fef4f3;
+  }
+}
+
+.button-bar {
+  padding-bottom: 10px;
+}
+
+body .label.label-large {
+  font-size: 14px;
+}
+
+body .page-header {
+  padding-bottom: 9px;
+  margin: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+body .panel-footer {
+  padding: 15px 15px;
+  padding-top: 0;
+  background-color: #fff;
+  border-top: none;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+body .btn {
+  font-weight: bold;
+}
+
+body .col-xs-4 {
+  padding: 0;
+}

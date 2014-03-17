@@ -1,0 +1,75 @@
+<section class="issue-header">
+  <div class="pull-right">
+    {{#if isEditing}}
+      <button type="button" class="btn btn-primary btn-sm" {{action 'updateTitle'}}>Save</button>
+      <a href="#" {{action 'edit'}}>Cancel</a>
+    {{else}}
+      <button type="button" class="btn btn-default btn-sm" {{action 'edit'}}>Edit</button>
+      {{link-to 'New Issue' 'issues.new' tagName='button' class="btn btn-success btn-sm"}}
+    {{/if}}
+  </div>
+
+  <div class="page-header">
+    {{#link-to "issues.index"}}<i class="fa fa-chevron-left fa-2x pull-left back-link"></i>{{/link-to}}
+    {{#if isEditing}}
+      <div class="col-xs-4">
+        {{focus-input Ember.TextField value=newTitle class="form-control"}}
+      </div>
+      <br>
+      <br>
+    {{else}}
+      <h2>{{title}}<small>#10</small></h2>
+    {{/if}}
+    <span {{bind-attr class=":label isOpen:label-success:label-danger :label-large"}}>{{state}}</span> <b>{{user.username}}</b> opened this issue {{format-date createdAt}} | {{comments.length}} comments
+  </div>
+</section>
+
+<div class="row">
+  <div class="col-md-9">
+    {{comment-item content=content update="updateComment" canDelete=false}}
+
+    {{#each comments}}
+      {{comment-item content=this update="updateComment" delete="deleteComment"}}
+    {{/each}}
+
+    {{comment-form content=content
+                   user=currentUser
+                   comment="addComment"
+                   close="closeIssue"
+                   reopen="reopenIssue"}}
+  </div>
+
+  <div class="col-md-3">
+    <dl>
+      <dt>Labels</dt>
+      {{#if labels}}
+        {{#each labels}}
+          <dd>{{name}}</dd>
+        {{/each}}
+      {{else}}
+        <dd>None yet</dd>
+      {{/if}}
+    </dl>
+    <dl>
+      <dt>Assignee</dt>
+      {{#if assignee}}
+        <dd>
+          <div class="pull-left">
+            {{user-avatar username=assignee.username height=20}}
+          </div>
+           {{assignee.username}}
+        </dd>
+      {{else}}
+        <dd>None one assigned</dd>
+      {{/if}}
+    </dl>
+    <dl>
+      <dt>Participants</dt>
+      <dd>
+        <div class="pull-left">
+          {{user-avatar username=user.username height=20}}
+        </div>
+      </dd>
+    </dl>
+  </div>
+</div>

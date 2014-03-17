@@ -1,0 +1,14 @@
+<h4>Labels</h4>
+<ul class="nav nav-pills nav-stacked">
+  {{#each labels}}
+    <li></li>
+  {{/each}}
+</ul>
+
+<h4>New Label</h4>
+<form {{action 'addLabel' on="submit"}}>
+  <div class="form-group">
+    {{input type="text" value=name class="form-control" placeholder="New label name"}}
+  </div>
+  <button type="submit" class="btn btn-default btn-block" {{bind-attr class="btnEnabled::disabled"}}>Create</button>
+</form>

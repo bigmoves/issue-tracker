@@ -1,0 +1,16 @@
+{{partial 'issues/issues-tabs'}}
+
+<div class="row">
+  <div class="col-md-3">
+    {{partial 'issues/user-filters'}}
+  </div>
+
+  <div class="col-md-9">
+    {{partial 'issues/button-bar'}}
+    {{#if paged}}
+      {{collection itemView="issues-list-item-view" content=paged tagName="ul" class="list-group"}}
+    {{else}}
+      <div class="well well-lg text-center">No issues to show. {{link-to 'Create an issue.' 'issues.new'}}</div>
+    {{/if}}
+  </div>
+</div>

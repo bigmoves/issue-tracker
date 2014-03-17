@@ -1,0 +1,12 @@
+<div>
+  <label>Name {{input value=name class='user-name'}}</label>
+</div>
+<div>
+  <label>Username {{input value=username class='user-username'}}</label>
+</div>
+<div>
+  <label>Email {{input value=email class='user-email'}}</label>
+</div>
+
+<button type="submit" {{action 'save' this}}>Save</button>
+<button type="submit" {{action 'cancel' this}}>Cancel</button>

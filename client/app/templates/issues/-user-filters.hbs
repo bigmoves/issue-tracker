@@ -1,0 +1,12 @@
+{{! the nested link-to's is a workaround for boostrap to get the active class on the li}}
+<ul class="nav nav-pills nav-stacked">
+  {{#link-to (query-params filter="all") tagName="li" href=false}}
+    {{#link-to (query-params filter="all")}}Everyone's Issues <span class="badge pull-right">{{content.length}}</span>{{/link-to}}
+  {{/link-to}}
+  {{#link-to (query-params filter="assigned") tagName="li" href=false}}
+    {{#link-to (query-params filter="assigned")}}Assigned by you <span class="badge pull-right">{{filterByAssignee.length}}</span>{{/link-to}}
+  {{/link-to}}
+  {{#link-to (query-params filter="created") tagName="li" href=false}}
+    {{#link-to (query-params filter="created")}}Created by you<span class="badge pull-right">{{filterByUser.length}}</span>{{/link-to}}
+  {{/link-to}}
+</ul>

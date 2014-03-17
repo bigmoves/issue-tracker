@@ -1,0 +1,24 @@
+{{user-avatar username=user.username height=48}}
+<div class="panel panel-default">
+  <div class="form-group" style="padding: 15px; margin-bottom: 0;">
+    {{validate-input Ember.TextField value=content.title class="form-control title" placeholder="Title" errors=errors.title}}
+  </div>
+  <div class="inner">
+    <ul class="nav nav-tabs">
+      <li {{bind-attr class=isWrite:active}}><a href="#" {{action 'activateTab' 'isWrite'}}>Write</a></li>
+      <li {{bind-attr class=isPreview:active}}><a href="#" {{action 'activateTab' 'isPreview'}}>Preview</a></li>
+    </ul>
+    {{#if isPreview}}
+      {{#if content.body}}
+        {{format-markdown content.body}}
+      {{else}}
+        Nothing to preview
+      {{/if}}
+    {{else}}
+      <div class="form-group" style="margin-bottom: 0;">
+        {{validate-input Ember.TextArea value=content.body class="form-control" placeholder="Leave a comment" rows="7" errors=errors.content}}
+      </div>
+    {{/if}}
+  </div>
+</div>
+<button type="submit" class="btn btn-success btn-sm pull-right" {{bind-attr class="canSubmitForm::disabled"}} {{action 'submit' content}}>Submit</button>

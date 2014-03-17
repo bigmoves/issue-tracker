@@ -1,0 +1,12 @@
+{{partial 'issues/issues-tabs'}}
+
+<div class="row">
+  <div class="col-md-8">
+    {{issue-form content=model user=currentUser action="createIssue"}}
+  </div>
+
+  <div class="col-md-3">
+    <h4>Add Label</h4>
+    {{labels-select content=labels selectedLabels=selectedLabels}}
+  </div>
+</div>

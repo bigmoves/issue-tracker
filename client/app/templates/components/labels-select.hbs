@@ -1,0 +1,5 @@
+<ul class="nav nav-pills nav-stacked">
+  {{#each content}}
+    <li {{bind-attr class="isSelected:active"}} {{action 'select' this}}><a href="#">{{name}}</a></li>
+  {{/each}}
+</ul>

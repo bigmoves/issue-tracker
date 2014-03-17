@@ -1,0 +1,30 @@
+{{user-avatar username=user.username height=48}}
+<div class="panel panel-default">
+  <div class="inner" style="padding-bottom: 0;">
+    <ul class="nav nav-tabs">
+      <li {{bind-attr class=isWrite:active}}><a href="#" {{action 'activateTab' 'isWrite'}}>Write</a></li>
+      <li {{bind-attr class=isPreview:active}}><a href="#" {{action 'activateTab' 'isPreview'}}>Preview</a></li>
+    </ul>
+  </div>
+  <div class="panel-body" style="padding-top: 0;">
+    {{#if isPreview}}
+      {{#if body}}
+        {{format-markdown body}}
+      {{else}}
+        Nothing to preview
+      {{/if}}
+    {{else}}
+      <div class="form-group" style="margin-bottom: 0;">
+        {{validate-input Ember.TextArea value=body class="form-control" placeholder="Leave a comment" rows="4" errors=errors.content}}
+      </div>
+    {{/if}}
+  </div>
+  <div class="panel-footer">
+    {{#if isOpen}}
+      <button type="button" class="btn btn-default btn-sm" {{action 'close'}}>Close</button>
+    {{else}}
+      <button type="button" class="btn btn-default btn-sm" {{action 'reopen'}}>Reopen</button>
+    {{/if}}
+    <button type="button" class="btn btn-success btn-sm" {{action 'comment'}}>Comment</button>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{{user-avatar username=content.user.username height=48}}
+<div {{bind-attr class=":panel isOwner:panel-info:panel-default"}}>
+  <div class="panel-heading">
+    <b>{{content.user.username}}</b> commented {{format-date content.createdAt}}
+    {{#if isOwner}}
+      <div class="pull-right">
+        <a href="#" {{action 'edit'}}><i class="fa fa-pencil"></i></a>
+        {{#if canDelete}}
+          <a href="#" {{action 'delete' content}}><i class="fa fa-times"></i></a>
+        {{/if}}
+      </div>
+    {{/if}}
+  </div>
+  <div class="panel-body">
+    {{#if isEditing}}
+      <div class="form-group" style="margin-bottom: 0;">
+        {{focus-input Ember.TextArea value=updatedBody class="form-control" rows="4" errors=errors.content}}
+      </div>
+    {{else}}
+      {{#if content.body}}
+        {{format-markdown content.body}}
+      {{/if}}
+    {{/if}}
+  </div>
+  {{#if isEditing}}
+    <div class="panel-footer">
+      <button type="button" class="btn btn-default btn-sm" {{action 'cancel'}}><span class="text-danger">Cancel</span></button>
+      <button type="button" class="btn btn-default btn-sm pull-right" {{action 'update' content}}>Update Comment</button>
+    </div>
+  {{/if}}
+</div>
