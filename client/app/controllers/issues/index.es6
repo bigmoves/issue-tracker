@@ -62,12 +62,12 @@ export default Ember.ArrayController.extend({
   filterByUser: function() {
     var user = this.get('currentUser');
     return this.get('model').filterBy('user', user);
-  }.property('model', 'user'),
+  }.property('model.@each', 'user'),
 
   filterByAssignee: function() {
     var user = this.get('currentUser');
     return this.get('model').filterBy('assignee', user);
-  }.property('model', 'user'),
+  }.property('model.@each', 'user'),
 
   filterByMentions: function() {
     //TODO
@@ -91,7 +91,7 @@ export default Ember.ArrayController.extend({
   filteredByState: function() {
     var state = this.get('state');
     return this.get('filteredContent').filterProperty('state', state);
-  }.property('model', 'state', 'filter'),
+  }.property('model.@each', 'state', 'filter'),
 
   sortedIssues: function() {
     var sortby = this.get('sort');
@@ -120,10 +120,10 @@ export default Ember.ArrayController.extend({
 
   openIssuesCount: function() {
     return this.get('model').filterProperty('state', 'open').length;
-  }.property('model'),
+  }.property('model.@each'),
 
   closedIssuesCount: function() {
     return this.get('model').filterProperty('state', 'closed').length;
-  }.property('model'),
+  }.property('model.@each'),
 
 });
