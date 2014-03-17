@@ -1,7 +1,10 @@
 AppkitRails::Application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :users
+      resources :users, except: [:new, :edit]
+      resources :labels, except: [:new, :edit]
+      resources :comments, except: [:new, :edit]
+      resources :issues, except: [:new, :edit]
     end
   end
 

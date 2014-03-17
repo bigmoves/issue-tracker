@@ -11,12 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312023906) do
+ActiveRecord::Schema.define(version: 20140317061708) do
+
+  create_table "comments", force: true do |t|
+    t.string   "body"
+    t.integer  "user_id"
+    t.integer  "issue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["issue_id"], name: "index_comments_on_issue_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "issues", force: true do |t|
+    t.string   "title"
+    t.string   "body"
+    t.string   "state"
+    t.integer  "user_id"
+    t.integer  "assignee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "issues", ["assignee_id"], name: "index_issues_on_assignee_id"
+  add_index "issues", ["user_id"], name: "index_issues_on_user_id"
+
+  create_table "issues_labels", id: false, force: true do |t|
+    t.integer "issue_id"
+    t.integer "label_id"
+  end
+
+  create_table "labels", force: true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "username"
     t.string   "email"
+    t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

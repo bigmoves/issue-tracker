@@ -2,7 +2,8 @@ var Comment = DS.Model.extend({
   body: DS.attr('string'),
   user: DS.belongsTo('user'),
   issue: DS.belongsTo('issue'),
-  createdAt: DS.attr('date')
+  createdAt: DS.attr('date'),
+  updatedAt: DS.attr('date')
 });
 
 Comment.FIXTURES = [
