@@ -41,8 +41,6 @@ export default Ember.Component.extend({
     return LGTM.validator()
       .validates('title')
         .required('You must enter a title.')
-      .validates('body')
-        .required('You must enter some content.')
       .build()
   }.property()
 });
