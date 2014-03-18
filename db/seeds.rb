@@ -8,13 +8,13 @@
 
 users = User.create([
   {
-    name: 'Tom Dale',
-    username: 'tomdale',
-    email: 'tomdale@ember.com'
+    name: 'Chad Miller',
+    username: 'chadtmiller',
+    email: 'chadtmiller15@gmail.com'
   }, {
     name: 'Yehuda Katz',
     username: 'wycats',
-    email: 'wycats@ember.com'
+    email: 'wycats@gmail.com'
   }
 ])
 
@@ -36,5 +36,7 @@ Issue.create({
 }).tap do |issue|
 
   issue.comments.create(body: 'hey, there', user: users.last)
+
+  issue.comments.create(body: "what's up", user: users.first)
 
 end
