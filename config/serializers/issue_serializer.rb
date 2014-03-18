@@ -5,4 +5,5 @@ class IssueSerializer < ActiveModel::Serializer
 
   has_many :comments
   has_many :labels
+  has_many :labelships
 end

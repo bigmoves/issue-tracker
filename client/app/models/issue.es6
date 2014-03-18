@@ -5,7 +5,10 @@ var Issue = DS.Model.extend({
   user: DS.belongsTo('user'),
   assignee: DS.belongsTo('user'),
   comments: DS.hasMany('comment'),
-  labels: DS.hasMany('label'),
+  labelships: DS.hasMany('labelship'),
+  labels: function() {
+    return this.get('labelships').getEach('label');
+  }.property('labelships.@each.relationshipsLoaded'),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date')
 });

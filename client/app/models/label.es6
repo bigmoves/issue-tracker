@@ -1,7 +1,7 @@
 var Label = DS.Model.extend({
   name: DS.attr('string'),
   color: DS.attr('string'),
-  issues: DS.hasMany('issue')
+  labelships: DS.hasMany('labelship')
 });
 
 Label.FIXTURES = [

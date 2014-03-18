@@ -21,12 +21,22 @@ export default Ember.Route.extend({
       var _this = this;
       var labels = this.get('controller.selectedLabels');
 
-      //TODO: add labels to the issue
+      function saveLabels() {
+        labels.forEach(function(label) {
+          var newLabel = _this.store.createRecord('labelship', {
+            issue: model,
+            label: label
+          });
+          newLabel.save();
+        });
+      }
 
       model.set('user', this.get('controller.currentUser'));
       model.set('state', 'open');
 
       model.save().then(function() {
+        return saveLabels();
+      }).then(function() {
         _this.transitionTo('issues.show', model);
       });
     }
