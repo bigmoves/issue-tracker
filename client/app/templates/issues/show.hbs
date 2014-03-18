@@ -55,7 +55,7 @@
       {{#if assignee}}
         <dd>
           <div class="pull-left">
-            {{user-avatar username=assignee.username height=20}}
+            {{user-avatar data=assignee height=20}}
           </div>
            {{assignee.username}}
         </dd>
@@ -67,7 +67,7 @@
       <dt>Participants</dt>
       <dd>
         <div class="pull-left">
-          {{user-avatar username=user.username height=20}}
+          {{user-avatar data=user height=20}}
         </div>
       </dd>
     </dl>

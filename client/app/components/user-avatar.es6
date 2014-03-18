@@ -1,7 +1,7 @@
 export default Ember.Component.extend({
   avatarUrl: function() {
-    var username = this.get('username');
-    return 'http://avatars.io/twitter/' + username;
+    var email = this.get('data.email');
+    return 'http://avatars.io/email/' + email;
   }.property('email'),
 
   didInsertElement: function() {
