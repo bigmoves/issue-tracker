@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:dockyard/ember-appkit-rails.git
+  remote: git://github.com/dockyard/ember-appkit-rails.git
   revision: 04da99e13e0f30d2b5fea538ebc8a830f03d5e91
   specs:
     ember-appkit-rails (0.4.0)
@@ -117,7 +117,7 @@ GEM
     showdown-rails (0.0.4)
       actionpack (>= 3.1)
       railties (>= 3.1)
-    slop (3.4.7)
+    slop (3.5.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
