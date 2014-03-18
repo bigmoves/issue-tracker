@@ -1,4 +1,9 @@
 <span class="pull-right">#{{id}}</span>
-<h4 class="list-group-item-heading">{{#link-to 'issues.show' this}}{{title}}{{/link-to}}</h4>
+<h4 class="list-group-item-heading">
+  {{#link-to 'issues.show' this}}{{title}}{{/link-to}}
+  {{#each labels}}
+    {{bs-label text=name color=color}}
+  {{/each}}
+</h4>
 <a {{bind-attr href=url}}>{{url}}</a>
 Opened by <b>{{user.username}}</b> {{format-date createdAt}} | <i class="fa fa-comments"></i> {{#link-to 'issues.show' this}}{{comments.length}} comments{{/link-to}}
