@@ -5,6 +5,9 @@ export default Ember.Component.extend({
   }.property('data.email'),
 
   didInsertElement: function() {
-    this.$('.avatar').tooltip();
+    var _this = this;
+    setTimeout(function() {
+      _this.$('.avatar').tooltip();
+    }, 200);
   }
 });
