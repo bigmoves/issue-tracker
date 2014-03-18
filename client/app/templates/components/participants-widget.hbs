@@ -1,0 +1,11 @@
+<dt>{{total}} participants</dt>
+<dd>
+  <div class="pull-left">
+    {{user-avatar data=owner height=20}}
+  </div>
+  {{#each participants}}
+    <div class="pull-left">
+      {{user-avatar data=this height=20}}
+    </div>
+  {{/each}}
+</dd>
