@@ -10,7 +10,7 @@
     </ul>
     {{#if isPreview}}
       {{#if content.body}}
-        {{format-markdown content.body}}
+        {{format-code text=content.body}}
       {{else}}
         Nothing to preview
       {{/if}}
