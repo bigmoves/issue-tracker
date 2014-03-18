@@ -24,13 +24,5 @@ export default Ember.Component.extend({
     activateTab: function(tab) {
       this.set('activeTab', tab);
     }
-  },
-
-  _hightlightCode: function() {
-    if(this.get('isPreview')) {
-      setTimeout(function() {
-          $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-      }, 200);
-    }
-  }.observes('isPreview')
+  }
 });

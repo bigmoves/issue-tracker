@@ -29,14 +29,6 @@ export default Ember.Component.extend({
     this.set('content.title', '');
   },
 
-  _hightlightCode: function() {
-    if(this.get('isPreview')) {
-      setTimeout(function() {
-        $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-      }, 200);
-    }
-  }.observes('isPreview'),
-
   validator: function() {
     return LGTM.validator()
       .validates('title')

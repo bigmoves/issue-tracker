@@ -11,12 +11,6 @@ export default Ember.Component.extend({
     return Ember.copy(this.get('content.body'));
   }.property(),
 
-  highlightCode: function() {
-    setTimeout(function() {
-      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-    }, 500);
-  }.on('didInsertElement'),
-
   actions: {
     edit: function() {
       this.set('isEditing', true);
